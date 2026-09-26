@@ -25,6 +25,9 @@ jobs:
       - name: Create wrangler.toml from example
         run: cp wrangler.example.toml wrangler.toml
 
+      - name: Build
+        run: npm run build
+
       - name: Generate types
         run: npm run types
 
@@ -33,9 +36,6 @@ jobs:
 
       - name: Typecheck
         run: npm run typecheck
-
-      - name: Build
-        run: npm run build
 
       - name: Test
         run: npm run test
