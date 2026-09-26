@@ -10,7 +10,7 @@ rm -rf release
 mkdir -p release
 
 cp dist/worker.js release/worker.js
-cp README.md LICENSE package.json wrangler.toml release/
+cp README.md LICENSE package.json wrangler.example.toml release/
 
 rm -f safeshare_release.zip worker.js.sha256 safeshare_release.zip.sha256
 

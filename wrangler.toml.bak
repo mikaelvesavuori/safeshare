@@ -1,0 +1,27 @@
+name = "safeshare"
+main = "dist/worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Bindings — provision with:
+#   wrangler kv namespace create SHARES
+#   wrangler r2 bucket create safeshare
+# Then paste the KV namespace id below.
+#
+# Copy this file to `wrangler.toml` (which is gitignored) and fill in real values.
+
+[[kv_namespaces]]
+binding = "SHARES"
+id = "YOUR_KV_NAMESPACE_ID"
+
+[[r2_buckets]]
+bucket_name = "safeshare"
+binding = "BUCKET"
+
+# TOKEN_SECRET is used to sign short-lived download capability tokens (HMAC).
+# Set it as a secret, never commit it:
+#   wrangler secret put TOKEN_SECRET
+# For local dev, copy .dev.vars.example to .dev.vars and fill in a random value.
+
+# Optional: gate uploads to yourself by setting UPLOAD_TOKEN and sending it
+# as the `x-upload-token` header on POST /api/upload.

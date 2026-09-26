@@ -22,6 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Create wrangler.toml from example
+        run: cp wrangler.example.toml wrangler.toml
+
       - name: Generate types
         run: npm run types
 
