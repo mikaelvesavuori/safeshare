@@ -1,0 +1,12 @@
+node_modules/
+.wrangler/
+dist/
+release/
+worker-configuration.d.ts
+wrangler.toml
+
+.env
+.dev.vars
+.DS_Store
+*.zip
+*.sha256

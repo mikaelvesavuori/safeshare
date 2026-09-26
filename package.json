@@ -1,0 +1,54 @@
+{
+  "name": "safeshare",
+  "description": "Tiny end-to-end encrypted file sharing on Cloudflare Workers. One-time downloads, passwords, short URLs.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Mikael Vesavuori",
+  "keywords": [
+    "file-sharing",
+    "cloudflare-workers",
+    "end-to-end-encryption",
+    "one-time-download",
+    "privacy",
+    "r2",
+    "workers-kv",
+    "edge-computing",
+    "self-hosted"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaelvesavuori/safeshare"
+  },
+  "bugs": {
+    "url": "https://github.com/mikaelvesavuori/safeshare/issues"
+  },
+  "homepage": "https://github.com/mikaelvesavuori/safeshare",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "dev:remote": "wrangler dev src/index.ts --remote",
+    "types": "wrangler types",
+    "lint": "biome check src test",
+    "format": "biome format --write src",
+    "typecheck": "tsc --noEmit",
+    "build": "rm -rf dist && mkdir -p dist && esbuild src/index.ts --bundle --minify --platform=browser --format=esm --target=es2022 --outfile=dist/worker.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "deploy": "npm run build && wrangler deploy dist/worker.js",
+    "release": "bash ./scripts/release-artifacts.sh"
+  },
+  "dependencies": {
+    "hono": "4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2",
+    "@cloudflare/types": "^7.0.1",
+    "@cloudflare/vitest-plugin": "1",
+    "@types/node": "26",
+    "esbuild": "latest",
+    "typescript": "7",
+    "vitest": "4",
+    "wrangler": "4"
+  }
+}

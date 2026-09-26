@@ -1,0 +1,9 @@
+# Local development secrets for `wrangler dev`.
+# Copy this file to `.dev.vars` (which is gitignored) and fill in real values.
+# In production, set these with `wrangler secret put <NAME>`.
+
+# Secret used to sign download capability tokens (HMAC-SHA256). Any random 32+ byte string.
+TOKEN_SECRET = "dev-only-change-me-to-a-long-random-string"
+
+# Optional: if set, POST /api/upload requires this value in the `x-upload-token` header.
+# UPLOAD_TOKEN = "let-me-upload"
